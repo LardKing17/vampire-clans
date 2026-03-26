@@ -1,21 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Vampire Clans</title>
 
-    }
+<style>
+body {
+  background: #0b0b0b;
+  color: white;
+  font-family: Arial;
+  text-align: center;
+}
 
-    button {
-      margin-top: 10px;
-      padding: 10px;
-      cursor: pointer;
-    }
-  </style>
+/* Древо */
+.tree {
+  position: relative;
+  margin-top: 100px;
+}
+
+/* Узлы */
+.clan {
+  position: absolute;
+  width: 120px;
+  cursor: pointer;
+  text-align: center;
+}
+
+/* Иконки */
+.clan img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid red;
+  transition: 0.3s;
+}
+
+.clan img:hover {
+  transform: scale(1.1);
+  border-color: white;
+}
+
+/* Подпись */
+.clan span {
+  display: block;
+  margin-top: 5px;
+}
+
+/* Линии (простые) */
+.line {
+  position: absolute;
+  width: 2px;
+  background: red;
+}
+
+/* Инфо */
+#info {
+  margin-top: 300px;
+  padding: 20px;
+  border-top: 1px solid gray;
+}
+</style>
 </head>
+
 <body>
 
 <h1>Vampire Clans</h1>
 
 <div class="tree">
-  <div class="clan" onclick="showClan('brujah')">Brujah</div>
-  <div class="clan" onclick="showClan('toreador')">Toreador</div>
-  <div class="clan" onclick="showClan('ventrue')">Ventrue</div>
+
+  <!-- Центральный -->
+  <div class="clan" style="top:0; left:45%;" onclick="showClan('ventrue')">
+    <img src="images/ventrue.png">
+    <span>Ventrue</span>
+  </div>
+
+  <!-- Левый -->
+  <div class="clan" style="top:150px; left:25%;" onclick="showClan('brujah')">
+    <img src="images/brujah.png">
+    <span>Brujah</span>
+  </div>
+
+  <!-- Правый -->
+  <div class="clan" style="top:150px; left:65%;" onclick="showClan('toreador')">
+    <img src="images/toreador.png">
+    <span>Toreador</span>
+  </div>
+
 </div>
 
 <div id="info">
@@ -33,7 +103,7 @@ const clans = {
   },
   toreador: {
     name: "Toreador",
-    desc: "Любители искусства и красоты.",
+    desc: "Любители искусства.",
     link: "toreador.html"
   },
   ventrue: {
