@@ -1,0 +1,61 @@
+
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Vampire Clans</h1>
+
+<div class="tree">
+  <div class="clan" onclick="showClan('brujah')">Brujah</div>
+  <div class="clan" onclick="showClan('toreador')">Toreador</div>
+  <div class="clan" onclick="showClan('ventrue')">Ventrue</div>
+</div>
+
+<div id="info">
+  <h2 id="clanName">Выбери клан</h2>
+  <p id="clanDesc"></p>
+  <button id="moreBtn" style="display:none;">Подробнее</button>
+</div>
+
+<script>
+const clans = {
+  brujah: {
+    name: "Brujah",
+    desc: "Бунтари и революционеры.",
+    link: "brujah.html"
+  },
+  toreador: {
+    name: "Toreador",
+    desc: "Любители искусства и красоты.",
+    link: "toreador.html"
+  },
+  ventrue: {
+    name: "Ventrue",
+    desc: "Элита и правители.",
+    link: "ventrue.html"
+  }
+};
+
+function showClan(id) {
+  const clan = clans[id];
+
+  document.getElementById("clanName").innerText = clan.name;
+  document.getElementById("clanDesc").innerText = clan.desc;
+
+  const btn = document.getElementById("moreBtn");
+  btn.style.display = "inline-block";
+  btn.onclick = () => {
+    window.location.href = clan.link;
+  };
+}
+</script>
+
+</body>
+</html>
