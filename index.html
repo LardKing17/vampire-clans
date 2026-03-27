@@ -17,7 +17,7 @@ h1 {
   margin: 10px 0;
 }
 
-/* Основной контейнер */
+/* Контейнер */
 .main {
   display: flex;
   justify-content: center;
@@ -29,8 +29,17 @@ h1 {
 /* Фракции */
 .faction {
   position: relative;
-  width: 350px;
-  height: 350px;
+}
+
+/* Размеры */
+.center {
+  width: 525px;  /* было 350 → +50% */
+  height: 525px;
+}
+
+.side {
+  width: 300px;
+  height: 300px;
 }
 
 /* Символ */
@@ -82,24 +91,28 @@ h1 {
 <div class="main">
 
   <!-- НЕЗАВИСИМЫЕ -->
-  <div class="faction">
+  <div class="faction side">
 
-    <div class="node" style="top:10%; left:50%;" onclick="showClan('assamite')">
+    <!-- Ассамиты (верх) -->
+    <div class="node" style="top:15%; left:50%;" onclick="showClan('assamite')">
       <img src="images/assamite.png">
       <div class="label">Ассамиты</div>
     </div>
 
-    <div class="node" style="top:90%; left:50%;" onclick="showClan('ravnos')">
+    <!-- Равнос (низ) -->
+    <div class="node" style="top:85%; left:50%;" onclick="showClan('ravnos')">
       <img src="images/ravnos.png">
       <div class="label">Равнос</div>
     </div>
 
-    <div class="node" style="top:50%; left:25%;" onclick="showClan('giovanni')">
+    <!-- Джованни (лево) -->
+    <div class="node" style="top:50%; left:30%;" onclick="showClan('giovanni')">
       <img src="images/giovanni.png">
       <div class="label">Джованни</div>
     </div>
 
-    <div class="node" style="top:50%; left:75%;" onclick="showClan('setite')">
+    <!-- Сетиты (право) -->
+    <div class="node" style="top:50%; left:70%;" onclick="showClan('setite')">
       <img src="images/followers_of_set.png">
       <div class="label">Сетиты</div>
     </div>
@@ -107,7 +120,7 @@ h1 {
   </div>
 
   <!-- КАМАРИЛЬЯ -->
-  <div class="faction">
+  <div class="faction center">
     <img src="images/camarilla.png" class="symbol">
 
     <div class="node" style="top:5%; left:50%;" onclick="showClan('ventrue')">
@@ -147,18 +160,21 @@ h1 {
   </div>
 
   <!-- ШАБАШ -->
-  <div class="faction">
+  <div class="faction side">
     <img src="images/sabbat.png" class="symbol">
 
-    <div class="node" style="top:50%; left:75%;" onclick="showClan('lasombra')">
+    <!-- Ласомбра -->
+    <div class="node" style="top:50%; left:70%;" onclick="showClan('lasombra')">
       <img src="images/lasombra.png">
       <div class="label">Ласомбра</div>
     </div>
 
-    <div class="node" style="top:50%; left:25%;" onclick="showClan('tzimisce')">
+    <!-- Цимисхи -->
+    <div class="node" style="top:50%; left:30%;" onclick="showClan('tzimisce')">
       <img src="images/tzimisce.png">
       <div class="label">Цимисхи</div>
     </div>
+
   </div>
 
 </div>
