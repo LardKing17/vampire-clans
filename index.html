@@ -18,49 +18,51 @@ h1 {
 }
 
 /* Контейнер */
-.tree-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 40px;
+.wrapper {
+  position: relative;
+  width: 800px;
+  height: 800px;
+  margin: 40px auto;
+}
+
+/* Символ Камарильи */
+.symbol {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.2;
 }
 
 /* Узлы */
-.node circle {
-  fill: #111;
-  stroke: white;
-  stroke-width: 2;
+.node {
+  position: absolute;
+  width: 80px;
+  text-align: center;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+}
+
+.node img {
+  width: 70px;
+  height: 70px;
+  filter: brightness(0) invert(1);
   transition: 0.3s;
 }
 
-.node:hover circle {
-  stroke: red;
-  transform: scale(1.05);
-  transform-origin: center;
+.node:hover img {
+  transform: scale(1.1);
 }
 
-/* Иконки белые */
-.node image {
-  pointer-events: none;
-  filter: brightness(0) invert(1);
-}
-
-/* Текст под кланами */
+/* Подписи */
 .label {
-  fill: white;
   font-size: 14px;
-  text-anchor: middle;
-  pointer-events: none;
-}
-
-/* Линии */
-line {
-  stroke: white;
-  stroke-width: 2;
+  margin-top: 5px;
 }
 
 /* Инфо */
 #info {
-  margin-top: 40px;
+  margin-top: 20px;
   padding: 20px;
   border-top: 1px solid #333;
   max-width: 600px;
@@ -88,81 +90,53 @@ button:hover {
 
 <h1>Вампирские кланы</h1>
 
-<div class="tree-container">
-<svg width="1000" height="600">
+<div class="wrapper">
 
-  <!-- ЛИНИИ -->
-  <!-- Первый ряд -->
-  <line x1="500" y1="120" x2="150" y2="300"/>
-  <line x1="500" y1="120" x2="350" y2="300"/>
-  <line x1="500" y1="120" x2="550" y2="300"/>
-  <line x1="500" y1="120" x2="750" y2="300"/>
+  <!-- Символ -->
+  <img src="images/camarilla.png" class="symbol">
 
-  <!-- Второй ряд -->
-  <line x1="500" y1="120" x2="250" y2="500"/>
-  <line x1="500" y1="120" x2="500" y2="500"/>
-  <line x1="500" y1="120" x2="750" y2="500"/>
+  <!-- Вентру (верх дуги) -->
+  <div class="node" style="top: 10%; left: 50%;" onclick="showClan('ventrue')">
+    <img src="images/ventrue.png">
+    <div class="label">Вентру</div>
+  </div>
 
-  <!-- CAMARILLA -->
-  <g class="node">
-    <circle cx="500" cy="120" r="60"/>
-    <image href="images/camarilla.png" x="450" y="70" width="100" height="100"/>
-  </g>
+  <!-- Тореадор (верх креста) -->
+  <div class="node" style="top: 25%; left: 50%;" onclick="showClan('toreador')">
+    <img src="images/toreador.png">
+    <div class="label">Тореадор</div>
+  </div>
 
-  <!-- ПЕРВЫЙ РЯД -->
+  <!-- Малкавиан (лево) -->
+  <div class="node" style="top: 50%; left: 25%;" onclick="showClan('malkavian')">
+    <img src="images/malkavian.png">
+    <div class="label">Малкавиан</div>
+  </div>
 
-  <!-- Бруха -->
-  <g class="node" onclick="showClan('brujah')" style="cursor:pointer;">
-    <circle cx="150" cy="300" r="50"/>
-    <image href="images/brujah.png" x="110" y="260" width="80" height="80"/>
-    <text x="150" y="370" class="label">Бруха</text>
-  </g>
+  <!-- Тремер (право) -->
+  <div class="node" style="top: 50%; left: 75%;" onclick="showClan('tremere')">
+    <img src="images/tremere.png">
+    <div class="label">Тремер</div>
+  </div>
 
-  <!-- Тореадор -->
-  <g class="node" onclick="showClan('toreador')" style="cursor:pointer;">
-    <circle cx="350" cy="300" r="50"/>
-    <image href="images/toreador.png" x="310" y="260" width="80" height="80"/>
-    <text x="350" y="370" class="label">Тореадор</text>
-  </g>
+  <!-- Носферату (низ креста) -->
+  <div class="node" style="top: 75%; left: 50%;" onclick="showClan('nosferatu')">
+    <img src="images/nosferatu.png">
+    <div class="label">Носферату</div>
+  </div>
 
-  <!-- Вентру -->
-  <g class="node" onclick="showClan('ventrue')" style="cursor:pointer;">
-    <circle cx="550" cy="300" r="50"/>
-    <image href="images/ventrue.png" x="510" y="260" width="80" height="80"/>
-    <text x="550" y="370" class="label">Вентру</text>
-  </g>
+  <!-- Гангрел (между центром и низом) -->
+  <div class="node" style="top: 63%; left: 50%;" onclick="showClan('gangrel')">
+    <img src="images/gangrel.png">
+    <div class="label">Гангрел</div>
+  </div>
 
-  <!-- Гангрел -->
-  <g class="node" onclick="showClan('gangrel')" style="cursor:pointer;">
-    <circle cx="750" cy="300" r="50"/>
-    <image href="images/gangrel.png" x="710" y="260" width="80" height="80"/>
-    <text x="750" y="370" class="label">Гангрел</text>
-  </g>
+  <!-- Бруха (чуть ниже центра) -->
+  <div class="node" style="top: 55%; left: 50%;" onclick="showClan('brujah')">
+    <img src="images/brujah.png">
+    <div class="label">Бруха</div>
+  </div>
 
-  <!-- ВТОРОЙ РЯД -->
-
-  <!-- Малкавиан -->
-  <g class="node" onclick="showClan('malkavian')" style="cursor:pointer;">
-    <circle cx="250" cy="500" r="50"/>
-    <image href="images/malkavian.png" x="210" y="460" width="80" height="80"/>
-    <text x="250" y="570" class="label">Малкавиан</text>
-  </g>
-
-  <!-- Носферату -->
-  <g class="node" onclick="showClan('nosferatu')" style="cursor:pointer;">
-    <circle cx="500" cy="500" r="50"/>
-    <image href="images/nosferatu.png" x="460" y="460" width="80" height="80"/>
-    <text x="500" y="570" class="label">Носферату</text>
-  </g>
-
-  <!-- Тремер -->
-  <g class="node" onclick="showClan('tremere')" style="cursor:pointer;">
-    <circle cx="750" cy="500" r="50"/>
-    <image href="images/tremere.png" x="710" y="460" width="80" height="80"/>
-    <text x="750" y="570" class="label">Тремер</text>
-  </g>
-
-</svg>
 </div>
 
 <div id="info">
@@ -190,22 +164,22 @@ const clans = {
   },
   gangrel: {
     name: "Гангрел",
-    desc: "Дикие и близкие к природе.",
+    desc: "Дикие и свободные.",
     link: "gangrel.html"
   },
   malkavian: {
     name: "Малкавиан",
-    desc: "Безумцы с пророческим даром.",
+    desc: "Безумцы с видениями.",
     link: "malkavian.html"
   },
   nosferatu: {
     name: "Носферату",
-    desc: "Искажённые, но мастера информации.",
+    desc: "Мастера тени и информации.",
     link: "nosferatu.html"
   },
   tremere: {
     name: "Тремер",
-    desc: "Маги крови и хранители тайных знаний.",
+    desc: "Кровавые маги.",
     link: "tremere.html"
   }
 };
