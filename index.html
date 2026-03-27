@@ -11,27 +11,62 @@ body {
   color: white;
   font-family: Arial;
   text-align: center;
+  overflow: hidden;
 }
 
 h1 {
-  margin-top: 30px;
+  margin: 10px;
 }
 
-/* Контейнер */
-.wrapper {
-  position: relative;
+/* Фракции */
+.faction {
+  position: absolute;
   width: 800px;
   height: 800px;
-  margin: 40px auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  transition: 0.5s;
 }
 
-/* Символ Камарильи */
+/* Центр */
+.active {
+  z-index: 3;
+}
+
+/* Маленькие */
+.small-left {
+  transform: translate(-140%, -140%) scale(0.25);
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.small-right {
+  transform: translate(40%, -140%) scale(0.25);
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+/* Отключаем клики внутри */
+.small-left .node,
+.small-right .node {
+  pointer-events: none;
+}
+
+/* Обёртка */
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Символ */
 .symbol {
   width: 100%;
   height: 100%;
   object-fit: contain;
   filter: brightness(0) invert(1);
-  opacity: 0.3;
+  opacity: 0.2;
 }
 
 /* Узлы */
@@ -54,34 +89,18 @@ h1 {
   transform: scale(1.1);
 }
 
-/* Подписи */
 .label {
   font-size: 14px;
-  margin-top: 5px;
 }
 
 /* Инфо */
 #info {
-  margin-top: 20px;
-  padding: 20px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
   border-top: 1px solid #333;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-button {
-  margin-top: 10px;
-  padding: 10px 20px;
-  background: black;
-  color: white;
-  border: 1px solid white;
-  cursor: pointer;
-}
-
-button:hover {
-  background: white;
-  color: black;
+  background: rgba(0,0,0,0.8);
 }
 </style>
 </head>
@@ -90,110 +109,127 @@ button:hover {
 
 <h1>Вампирские кланы</h1>
 
-<div class="wrapper">
+<!-- КАМАРИЛЬЯ -->
+<div id="camarilla" class="faction active" onclick="switchFaction('camarilla')">
+  <div class="wrapper">
+    <img src="images/camarilla.png" class="symbol">
 
-  <!-- Символ -->
-  <img src="images/camarilla.png" class="symbol">
+    <div class="node" style="top: 5%; left: 50%;" onclick="showClan('ventrue')">
+      <img src="images/ventrue.png"><div class="label">Вентру</div>
+    </div>
 
- <!-- Вентру (верхняя дуга) -->
-<div class="node" style="top: 5%; left: 50%;" onclick="showClan('ventrue')">
-  <img src="images/ventrue.png">
-  <div class="label">Вентру</div>
+    <div class="node" style="top: 28%; left: 50%;" onclick="showClan('toreador')">
+      <img src="images/toreador.png"><div class="label">Тореадор</div>
+    </div>
+
+    <div class="node" style="top: 44%; left: 35%;" onclick="showClan('malkavian')">
+      <img src="images/malkavian.png"><div class="label">Малкавиан</div>
+    </div>
+
+    <div class="node" style="top: 44%; left: 65%;" onclick="showClan('tremere')">
+      <img src="images/tremere.png"><div class="label">Тремер</div>
+    </div>
+
+    <div class="node" style="top: 90%; left: 50%;" onclick="showClan('nosferatu')">
+      <img src="images/nosferatu.png"><div class="label">Носферату</div>
+    </div>
+
+    <div class="node" style="top: 70%; left: 50%;" onclick="showClan('gangrel')">
+      <img src="images/gangrel.png"><div class="label">Гангрел</div>
+    </div>
+
+    <div class="node" style="top: 52%; left: 50%;" onclick="showClan('brujah')">
+      <img src="images/brujah.png"><div class="label">Бруха</div>
+    </div>
+  </div>
 </div>
 
-<!-- Тореадор (верх креста) -->
-<div class="node" style="top: 28%; left: 50%;" onclick="showClan('toreador')">
-  <img src="images/toreador.png">
-  <div class="label">Тореадор</div>
+<!-- ШАБАШ -->
+<div id="sabbat" class="faction small-right" onclick="switchFaction('sabbat')">
+  <div class="wrapper">
+    <img src="images/sabbat.png" class="symbol">
+
+    <div class="node" style="top: 50%; left: 75%;">
+      <img src="images/lasombra.png"><div class="label">Ласомбра</div>
+    </div>
+
+    <div class="node" style="top: 50%; left: 25%;">
+      <img src="images/tzimisce.png"><div class="label">Цимисхи</div>
+    </div>
+  </div>
 </div>
 
-<!-- Малкавиан (лево) -->
-<div class="node" style="top: 44%; left: 35%;" onclick="showClan('malkavian')">
-  <img src="images/malkavian.png">
-  <div class="label">Малкавиан</div>
+<!-- НЕЗАВИСИМЫЕ -->
+<div id="independent" class="faction small-left" onclick="switchFaction('independent')">
+  <div class="wrapper">
+    <img src="images/independent.png" class="symbol">
+
+    <div class="node" style="top: 90%; left: 50%;">
+      <img src="images/assamite.png"><div class="label">Ассамиты</div>
+    </div>
+
+    <div class="node" style="top: 44%; left: 35%;">
+      <img src="images/ravnos.png"><div class="label">Равнос</div>
+    </div>
+
+    <div class="node" style="top: 44%; left: 65%;">
+      <img src="images/giovanni.png"><div class="label">Джованни</div>
+    </div>
+
+    <div class="node" style="top: 5%; left: 50%;">
+      <img src="images/followers_of_set.png"><div class="label">Сетиты</div>
+    </div>
+  </div>
 </div>
 
-<!-- Тремер (право) -->
-<div class="node" style="top: 44%; left: 65%;" onclick="showClan('tremere')">
-  <img src="images/tremere.png">
-  <div class="label">Тремер</div>
-</div>
-
-<!-- Носферату (низ) -->
-<div class="node" style="top: 90%; left: 50%;" onclick="showClan('nosferatu')">
-  <img src="images/nosferatu.png">
-  <div class="label">Носферату</div>
-</div>
-
-<!-- Гангрел -->
-<div class="node" style="top: 70%; left: 50%;" onclick="showClan('gangrel')">
-  <img src="images/gangrel.png">
-  <div class="label">Гангрел</div>
-</div>
-
-<!-- Бруха -->
-<div class="node" style="top: 52%; left: 50%;" onclick="showClan('brujah')">
-  <img src="images/brujah.png">
-  <div class="label">Бруха</div>
-</div>
-</div>
-
+<!-- ИНФО -->
 <div id="info">
   <h2 id="clanName">Выбери клан</h2>
   <p id="clanDesc"></p>
-  <button id="moreBtn" style="display:none;">Подробнее</button>
 </div>
 
 <script>
-const clans = {
-  brujah: {
-    name: "Бруха",
-    desc: "Бунтари и революционеры.",
-    link: "brujah.html"
-  },
-  toreador: {
-    name: "Тореадор",
-    desc: "Любители искусства и красоты.",
-    link: "toreador.html"
-  },
-  ventrue: {
-    name: "Вентру",
-    desc: "Правящая элита.",
-    link: "ventrue.html"
-  },
-  gangrel: {
-    name: "Гангрел",
-    desc: "Дикие и свободные.",
-    link: "gangrel.html"
-  },
-  malkavian: {
-    name: "Малкавиан",
-    desc: "Безумцы с видениями.",
-    link: "malkavian.html"
-  },
-  nosferatu: {
-    name: "Носферату",
-    desc: "Мастера тени и информации.",
-    link: "nosferatu.html"
-  },
-  tremere: {
-    name: "Тремер",
-    desc: "Кровавые маги.",
-    link: "tremere.html"
+function switchFaction(target) {
+  const ids = ["camarilla", "sabbat", "independent"];
+
+  ids.forEach(id => {
+    const el = document.getElementById(id);
+    el.classList.remove("active", "small-left", "small-right");
+  });
+
+  if (target === "camarilla") {
+    camarilla.classList.add("active");
+    sabbat.classList.add("small-right");
+    independent.classList.add("small-left");
   }
+
+  if (target === "sabbat") {
+    sabbat.classList.add("active");
+    camarilla.classList.add("small-left");
+    independent.classList.add("small-right");
+  }
+
+  if (target === "independent") {
+    independent.classList.add("active");
+    camarilla.classList.add("small-right");
+    sabbat.classList.add("small-left");
+  }
+}
+
+const clans = {
+  ventrue: {name:"Вентру", desc:"Правящая элита."},
+  toreador: {name:"Тореадор", desc:"Любители искусства."},
+  malkavian: {name:"Малкавиан", desc:"Безумцы."},
+  tremere: {name:"Тремер", desc:"Кровавые маги."},
+  nosferatu: {name:"Носферату", desc:"Мастера тени."},
+  gangrel: {name:"Гангрел", desc:"Дикие."},
+  brujah: {name:"Бруха", desc:"Бунтари."}
 };
 
 function showClan(id) {
   const clan = clans[id];
-
   document.getElementById("clanName").innerText = clan.name;
   document.getElementById("clanDesc").innerText = clan.desc;
-
-  const btn = document.getElementById("moreBtn");
-  btn.style.display = "inline-block";
-  btn.onclick = () => {
-    window.location.href = clan.link;
-  };
 }
 </script>
 
