@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<title>Вентру</title>
+<title>Тореадор</title>
 
 <style>
 body {
@@ -10,6 +10,29 @@ body {
   color: white;
   font-family: Arial;
   padding: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ФОН СИМВОЛА */
+.bg-symbol {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 80vh;
+  height: 80vh;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+  opacity: 0.08;
+  filter: brightness(0) invert(1);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Контент поверх */
+.content {
+  position: relative;
+  z-index: 1;
 }
 
 /* Заголовки */
@@ -29,7 +52,7 @@ h2 {
 .description {
   text-align: left;
   margin-bottom: 30px;
-  white-space: nowrap; /* убирает перенос */
+  white-space: nowrap;
 }
 
 /* Дисциплины */
@@ -44,7 +67,6 @@ h2 {
 
 .disciplines li {
   font-weight: bold;
-  margin-bottom: 5px;
 }
 
 /* Проклятие */
@@ -67,6 +89,11 @@ h2 {
 </head>
 
 <body>
+
+<!-- ФОН -->
+<img src="images/toreador.png" class="bg-symbol">
+
+<div class="content">
 
 <h1>Тореадор</h1>
 <h2>Дети розы</h2>
