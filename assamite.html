@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Ассамиты</title>
+
+<style>
+body {
+  background: black;
+  color: white;
+  font-family: Arial;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ФОН СИМВОЛА */
+.bg-symbol {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 80vh;
+  height: 80vh;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+  opacity: 0.08;
+  filter: brightness(0) invert(1);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Контент поверх */
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Заголовки */
+h1 {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+h2 {
+  text-align: center;
+  font-weight: normal;
+  color: #aaa;
+  margin-bottom: 30px;
+}
+
+/* Описание */
+.description {
+  text-align: left;
+  margin-bottom: 30px;
+  white-space: nowrap;
+}
+
+/* Дисциплины */
+.disciplines {
+  text-align: left;
+  margin-bottom: 40px;
+}
+
+.disciplines ul {
+  padding-left: 20px;
+}
+
+.disciplines li {
+  font-weight: bold;
+}
+
+/* Проклятие */
+.curse {
+  border: 1px solid red;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Назад */
+.back {
+  display: block;
+  margin-top: 40px;
+  text-align: center;
+  color: white;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ФОН -->
+<img src="images/assamite.png" class="bg-symbol">
+<body>
+
+<h1>Ассамиты</h1>
+<h2>Судьи крови</h2>
+
+<div class="block">
+Клан убийц, охотящихся на других вампиров.
+</div>
+
+<div class="block">
+<ul><li>Смерть</li><li>Скрытность</li><li>Скорость</li></ul>
+</div>
+
+<div class="curse">
+Жажда крови вампиров.
+</div>
+
+<a href="index.html" class="back">← Назад</a>
+
+</div>
+
+</body>
+</html>
