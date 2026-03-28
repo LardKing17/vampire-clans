@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Вентру</title>
+<style>
+body {background:black;color:white;font-family:Arial;text-align:center;padding:20px;}
+.block {margin:20px auto;max-width:600px;border:1px solid #333;padding:15px;}
+.curse {border:1px solid red;padding:15px;}
+</style>
+</head>
+<body>
+<h1>Вентру</h1>
+<h2>Голубая кровь</h2>
+
+<div class="block">
+Вентру — прирождённые правители, контролирующие города и структуры власти.
+</div>
+
+<div class="block">
+<h3>Дисциплины</h3>
+<ul><li>Доминирование</li><li>Стойкость</li><li>Присутствие</li></ul>
+</div>
+
+<div class="curse">
+<h3>Проклятие</h3>
+Могут питаться только определённым типом крови.
+</div>
+
+<a href="index.html">Назад</a>
+</body>
+</html>
