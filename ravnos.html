@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Равнос</title>
+
+<style>
+body {
+  background: black;
+  color: white;
+  font-family: Arial;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ФОН СИМВОЛА */
+.bg-symbol {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 80vh;
+  height: 80vh;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+  opacity: 0.08;
+  filter: brightness(0) invert(1);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Контент поверх */
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Заголовки */
+h1 {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+h2 {
+  text-align: center;
+  font-weight: normal;
+  color: #aaa;
+  margin-bottom: 30px;
+}
+
+/* Описание */
+.description {
+  text-align: left;
+  margin-bottom: 30px;
+  white-space: nowrap;
+}
+
+/* Дисциплины */
+.disciplines {
+  text-align: left;
+  margin-bottom: 40px;
+}
+
+.disciplines ul {
+  padding-left: 20px;
+}
+
+.disciplines li {
+  font-weight: bold;
+}
+
+/* Проклятие */
+.curse {
+  border: 1px solid red;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Назад */
+.back {
+  display: block;
+  margin-top: 40px;
+  text-align: center;
+  color: white;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ФОН -->
+<img src="images/ravnos.png" class="bg-symbol">
+<body>
+
+<h1>Равнос</h1>
+<h2>Обманщики</h2>
+
+<div class="block">
+Кочевники и иллюзионисты.
+</div>
+
+<div class="block">
+<ul><li>Иллюзии</li><li>Ловкость</li><li>Хаос</li></ul>
+</div>
+
+<div class="curse">
+Не могут долго оставаться на одном месте.
+</div>
+
+<a href="index.html" class="back">← Назад</a>
+
+</div>
+
+</body>
+</html>
