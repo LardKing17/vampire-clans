@@ -3,30 +3,93 @@
 <head>
 <meta charset="UTF-8">
 <title>Вентру</title>
+
 <style>
-body {background:black;color:white;font-family:Arial;text-align:center;padding:20px;}
-.block {margin:20px auto;max-width:600px;border:1px solid #333;padding:15px;}
-.curse {border:1px solid red;padding:15px;}
+body {
+  background: black;
+  color: white;
+  font-family: Arial;
+  padding: 40px;
+}
+
+/* Заголовки */
+h1 {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+h2 {
+  text-align: center;
+  font-weight: normal;
+  color: #aaa;
+  margin-bottom: 30px;
+}
+
+/* Описание */
+.description {
+  text-align: left;
+  margin-bottom: 30px;
+  white-space: nowrap; /* убирает перенос */
+}
+
+/* Дисциплины */
+.disciplines {
+  text-align: left;
+  margin-bottom: 40px;
+}
+
+.disciplines ul {
+  padding-left: 20px;
+}
+
+.disciplines li {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Проклятие */
+.curse {
+  border: 1px solid red;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Назад */
+.back {
+  display: block;
+  margin-top: 40px;
+  text-align: center;
+  color: white;
+}
 </style>
 </head>
+
 <body>
+
 <h1>Вентру</h1>
 <h2>Голубая кровь</h2>
 
-<div class="block">
+<div class="description">
 Вентру — прирождённые правители, контролирующие города и структуры власти.
 </div>
 
-<div class="block">
+<div class="disciplines">
 <h3>Дисциплины</h3>
-<ul><li>Доминирование</li><li>Стойкость</li><li>Присутствие</li></ul>
+<ul>
+  <li>Доминирование</li>
+  <li>Стойкость</li>
+  <li>Присутствие</li>
+</ul>
 </div>
 
 <div class="curse">
 <h3>Проклятие</h3>
-Могут питаться только определённым типом крови.
+Вентру могут питаться только определённым типом крови.
 </div>
 
-<a href="index.html">Назад</a>
+<a href="index.html" class="back">← Назад</a>
+
 </body>
 </html>
