@@ -182,31 +182,91 @@ h1 {
 <div id="info">
   <h2 id="clanName">Выбери клан</h2>
   <p id="clanDesc"></p>
+  <button id="moreBtn" style="display:none;">Подробнее</button>
 </div>
 
 <script>
 const clans = {
-  ventrue:{name:"Вентру",desc:"Правящая элита Камарильи."},
-  toreador:{name:"Тореадор",desc:"Любители искусства."},
-  malkavian:{name:"Малкавиан",desc:"Безумцы."},
-  tremere:{name:"Тремер",desc:"Маги крови."},
-  nosferatu:{name:"Носферату",desc:"Мастера информации."},
-  gangrel:{name:"Гангрел",desc:"Дикие."},
-  brujah:{name:"Бруха",desc:"Бунтари."},
+  ventrue:{
+    name:"Вентру",
+    desc:"Правящая элита Камарильи.",
+    link:"ventrue.html"
+  },
+  toreador:{
+    name:"Тореадор",
+    desc:"Любители искусства.",
+    link:"toreador.html"
+  },
+  malkavian:{
+    name:"Малкавиан",
+    desc:"Безумцы.",
+    link:"malkavian.html"
+  },
+  tremere:{
+    name:"Тремер",
+    desc:"Маги крови.",
+    link:"tremere.html"
+  },
+  nosferatu:{
+    name:"Носферату",
+    desc:"Мастера информации.",
+    link:"nosferatu.html"
+  },
+  gangrel:{
+    name:"Гангрел",
+    desc:"Дикие.",
+    link:"gangrel.html"
+  },
+  brujah:{
+    name:"Бруха",
+    desc:"Бунтари.",
+    link:"brujah.html"
+  },
 
-  assamite:{name:"Ассамиты",desc:"Убийцы."},
-  ravnos:{name:"Равнос",desc:"Обманщики."},
-  giovanni:{name:"Джованни",desc:"Некроманты."},
-  setite:{name:"Сетиты",desc:"Культ змеи."},
+  assamite:{
+    name:"Ассамиты",
+    desc:"Убийцы.",
+    link:"assamite.html"
+  },
+  ravnos:{
+    name:"Равнос",
+    desc:"Обманщики.",
+    link:"ravnos.html"
+  },
+  giovanni:{
+    name:"Джованни",
+    desc:"Некроманты.",
+    link:"giovanni.html"
+  },
+  setite:{
+    name:"Сетиты",
+    desc:"Культ змеи.",
+    link:"setite.html"
+  },
 
-  lasombra:{name:"Ласомбра",desc:"Владыки теней."},
-  tzimisce:{name:"Цимисхи",desc:"Повелители плоти."}
+  lasombra:{
+    name:"Ласомбра",
+    desc:"Владыки теней.",
+    link:"lasombra.html"
+  },
+  tzimisce:{
+    name:"Цимисхи",
+    desc:"Повелители плоти.",
+    link:"tzimisce.html"
+  }
 };
 
 function showClan(id) {
   const clan = clans[id];
+
   document.getElementById("clanName").innerText = clan.name;
   document.getElementById("clanDesc").innerText = clan.desc;
+
+  const btn = document.getElementById("moreBtn");
+  btn.style.display = "inline-block";
+  btn.onclick = () => {
+    window.location.href = clan.link;
+  };
 }
 </script>
 
