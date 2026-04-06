@@ -56,15 +56,15 @@ h1 {
 /* Узлы */
 .node {
   position: absolute;
-  width: 80px; /* увеличили зону клика */
+  width: 60px; /* вернули как было */
   text-align: center;
   transform: translate(-50%, -50%);
   cursor: pointer;
 }
 
 .node img {
-  width: 55px;
-  height: 55px;
+  width: 50px; /* вернули как было */
+  height: 50px;
   filter: brightness(0) invert(1);
   transition: 0.2s;
 }
@@ -113,24 +113,15 @@ h1 {
     height: 75vw;
   }
 
-  /* Иконки крупнее */
-  .node img {
-    width: 60px;
-    height: 60px;
-  }
+  /* размеры иконок НЕ меняем */
 
-  .node {
-    width: 90px;
-  }
-
-  /* Фиксированный инфо блок */
+  /* фиксированный инфо */
   #info {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
     background: black;
-    z-index: 10;
   }
 
   body {
@@ -238,14 +229,14 @@ h1 {
 <script>
 const clans = {
   ventrue:{name:"Вентру",desc:"Правители. Элита. Традиционалисты.",link:"ventrue.html"},
-  toreador:{name:"Тореадор",desc:"Эстеты. Декаденты. Покровители искусств.",link:"toreador.html"},
-  malkavian:{name:"Малкавиан",desc:"Безумцы. Пророки. Проказники.",link:"malkavian.html"},
+  toreador:{name:"Тореадор",desc:"Эстеты.",link:"toreador.html"},
+  malkavian:{name:"Малкавиан",desc:"Безумцы.",link:"malkavian.html"},
   tremere:{name:"Тремер",desc:"Маги крови.",link:"tremere.html"},
-  nosferatu:{name:"Носферату",desc:"Шпионы. Информаторы. Уродливые монстры.",link:"nosferatu.html"},
-  gangrel:{name:"Гангрел",desc:"Дикие. Независимые. Звероподобные.",link:"gangrel.html"},
-  brujah:{name:"Бруха",desc:"Необузданные. Бунтари. Бойцы.",link:"brujah.html"},
+  nosferatu:{name:"Носферату",desc:"Шпионы.",link:"nosferatu.html"},
+  gangrel:{name:"Гангрел",desc:"Дикие.",link:"gangrel.html"},
+  brujah:{name:"Бруха",desc:"Бунтари.",link:"brujah.html"},
 
-  assamite:{name:"Ассамиты",desc:"Убийцы. Фанатики.",link:"assamite.html"},
+  assamite:{name:"Ассамиты",desc:"Убийцы.",link:"assamite.html"},
   ravnos:{name:"Равнос",desc:"Обманщики.",link:"ravnos.html"},
   giovanni:{name:"Джованни",desc:"Некроманты.",link:"giovanni.html"},
   setite:{name:"Сетиты",desc:"Культ змеи.",link:"setite.html"},
