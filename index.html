@@ -21,12 +21,13 @@ h1 {
 /* Контейнер */
 .main {
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 75vh;
   gap: 40px;
+
   overflow-x: auto;
   scroll-snap-type: x mandatory;
+
+  padding: 0 50vw; /* ключ для центрирования */
 }
 
 /* Фракции */
@@ -59,20 +60,21 @@ h1 {
 /* Узлы */
 .node {
   position: absolute;
-  width: 50px; /* уменьшили */
+  width: 60px;
   text-align: center;
   transform: translate(-50%, -50%);
   cursor: pointer;
 }
 
+/* ПК размер */
 .node img {
-  width: 40px; /* уменьшили */
-  height: 40px;
+  width: 50px;
+  height: 50px;
   filter: brightness(0) invert(1);
 }
 
 .label {
-  font-size: 10px; /* уменьшили */
+  font-size: 12px;
 }
 
 /* Инфо */
@@ -87,18 +89,12 @@ h1 {
   padding: 6px 12px;
 }
 
-/* 📱 МОБИЛЬНАЯ */
+/* 📱 МОБИЛЬНАЯ ВЕРСИЯ */
 @media (max-width: 768px) {
 
-  .main {
-    justify-content: flex-start;
-    padding: 10px;
-    height: auto;
-  }
-
   .center {
-    width: 90vw;
-    height: 90vw;
+    width: 85vw;
+    height: 85vw;
   }
 
   .side {
@@ -106,6 +102,21 @@ h1 {
     height: 75vw;
   }
 
+  /* Меньше иконки */
+  .node img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .label {
+    font-size: 10px;
+  }
+
+  .node {
+    width: 50px;
+  }
+
+  /* фикс инфо */
   #info {
     position: fixed;
     bottom: 0;
@@ -235,7 +246,7 @@ function showClan(id) {
   btn.onclick = () => window.location.href = clan.link;
 }
 
-/* 👉 Авто-центр Камарильи при загрузке */
+/* старт с Камарильи */
 window.onload = () => {
   const container = document.getElementById("main");
   const target = document.getElementById("camarillaBlock");
