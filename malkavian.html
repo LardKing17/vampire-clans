@@ -11,7 +11,7 @@ body {
   font-family: Arial;
   padding: 40px;
   position: relative;
-  overflow: hidden;
+  overflow: auto;
 }
 
 /* ФОН СИМВОЛА */
@@ -112,9 +112,49 @@ h2 {
 Все Малкавианы страдают психическим расстройством.
 </div>
 
+<hr style="margin:40px 0; border:1px solid #333;">
+
+<div class="quick-gen">
+
+  <h3 onclick="toggleQuickGen()" style="cursor:pointer;">
+    ▶ Быстрая генерация
+  </h3>
+
+  <div id="quickContent" style="display:none; text-align:left; max-width:700px; margin:20px auto;">
+
+    <p><b>Первичные характеристики:</b> Чаще всего ментальные.</p>
+
+    <p><b>Способности:</b> Таланты или знания.</p>
+
+    <p><b>Факты биографии:</b>Малкавиане делают ставку либо на колличество, либо на качество фактов биографии. В зависимости от их безумия.</p>
+
+    <p><b>Требования к дисциплнам:</b></p>
+    <ul>
+    <li><b>Затемение</b> — способность управлять тенями. Зависит от Манипуляции. Использует Оккультизм. На высоких уровнях требует Смелость.</li>
+    <li><b>Мощь</b> — увеличивает силу сородича.</li>
+    <li><b>Доминирование</b> — позволяет узнавать мыслями других. Зависит от Манипуляции, Смекалки и Обаяния. Использует Запугивание, Лидерство и Хитрость.</li>
+    </ul>
+      
+    <p><b>Дополнительно:</b>Добродетели и Человечность редко остаются на начальном уровне. Многие выбирают архетипы Одиночек или Девиантов в сочетании с амплуа Изгоев.</p>
+
+  </div>
+
+</div>
+
+<a href="index.html" class="back">← Назад</a>
+
+</div>
+
 <a href="index.html" class="back">← Назад</a>
 
 </div>
 
 </body>
 </html>
+
+<script>
+function toggleQuickGen() {
+  const block = document.getElementById("quickContent");
+  block.style.display = block.style.display === "none" ? "block" : "none";
+}
+</script>
