@@ -115,5 +115,45 @@ h2 {
 
 </div>
 
+<hr style="margin:40px 0; border:1px solid #333;">
+
+<div class="quick-gen">
+
+  <h3 onclick="toggleQuickGen()" style="cursor:pointer;">
+    ▶ Быстрая генерация
+  </h3>
+
+  <div id="quickContent" style="display:none; text-align:left; max-width:700px; margin:20px auto;">
+
+    <p><b>Первичные характеристики:</b> Физические.</p>
+
+    <p><b>Способности:</b> Таланты в первую очередь.</p>
+
+    <p><b>Факты биографии:</b>Гангрел полагаются на себя и развивают клановые дисциплины вместо фактов биографии.</p>
+
+    <p><b>Требования к дисциплнам:</b></p>
+    <ul>
+    <li><b>Анимализм</b> — способность общаться и управлять животными. Зависит от Манипуляции и Обаяния. Использует Исполнение, Запугивание, Эмпатию и Хитрость.</li>
+    <li><b>Стойксоть</b> — увеличивает выносливость сородича.</li>
+    <li><b>Метаморфоза — способность изменять собственное тело. Дисциплина не требует проверок, а лишь тратит пункты крови.</li>
+    </ul>
+      
+    <p><b>Дополнительно:</b>Натура Одиночка и амплуа Изгой самый часто встречающийся архетип в клане.</p>
+
+  </div>
+
+</div>
+
+<a href="index.html" class="back">← Назад</a>
+
+</div>
+
 </body>
 </html>
+
+<script>
+function toggleQuickGen() {
+  const block = document.getElementById("quickContent");
+  block.style.display = block.style.display === "none" ? "block" : "none";
+}
+</script>
