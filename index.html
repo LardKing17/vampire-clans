@@ -12,7 +12,7 @@ body {
   color: white;
   font-family: Arial;
   text-align: center;
-  overflow-x: hidden; /* убирает полосу */
+  overflow-x: hidden;
 }
 
 h1 {
@@ -80,9 +80,14 @@ h1 {
 
 /* Инфо */
 #info {
-  height: 80px;
+  min-height: 110px; /* увеличили */
   border-top: 1px solid #333;
   padding: 10px;
+}
+
+#moreBtn {
+  margin-top: 8px;
+  padding: 8px 14px;
 }
 
 /* 📱 МОБИЛКА */
@@ -92,7 +97,7 @@ h1 {
     justify-content: flex-start;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    padding: 0 40vw; /* меньше → чтобы не обрезало верх */
+    padding: 0 35vw;
     height: auto;
   }
 
@@ -100,20 +105,21 @@ h1 {
     scroll-snap-align: center;
   }
 
+  /* уменьшаем чуть сильнее чтобы всё влезло */
   .center {
-    width: 85vw;
-    height: 85vw;
+    width: 80vw;
+    height: 80vw;
   }
 
   .side {
-    width: 70vw;
-    height: 70vw;
+    width: 65vw;
+    height: 65vw;
   }
 
-  /* уменьшаем только на мобиле */
+  /* уменьшаем иконки */
   .node img {
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
   }
 
   .label {
@@ -121,7 +127,12 @@ h1 {
   }
 
   .node {
-    width: 50px;
+    width: 45px;
+  }
+
+  /* 🔥 ВАЖНО: сдвигаем Вентру вниз */
+  .center .node:first-child {
+    top: 10% !important;
   }
 
   /* фикс инфо */
@@ -130,10 +141,11 @@ h1 {
     bottom: 0;
     width: 100%;
     background: black;
+    min-height: 130px;
   }
 
   body {
-    padding-bottom: 120px;
+    padding-bottom: 140px;
   }
 }
 </style>
@@ -147,27 +159,18 @@ h1 {
 
   <!-- НЕЗАВИСИМЫЕ -->
   <div class="faction side">
-
     <div class="node" style="top:15%; left:50%;" onclick="showClan('assamite')">
-      <img src="images/assamite.png">
-      <div class="label">Ассамиты</div>
+      <img src="images/assamite.png"><div class="label">Ассамиты</div>
     </div>
-
     <div class="node" style="top:85%; left:50%;" onclick="showClan('ravnos')">
-      <img src="images/ravnos.png">
-      <div class="label">Равнос</div>
+      <img src="images/ravnos.png"><div class="label">Равнос</div>
     </div>
-
     <div class="node" style="top:50%; left:30%;" onclick="showClan('giovanni')">
-      <img src="images/giovanni.png">
-      <div class="label">Джованни</div>
+      <img src="images/giovanni.png"><div class="label">Джованни</div>
     </div>
-
     <div class="node" style="top:50%; left:70%;" onclick="showClan('setite')">
-      <img src="images/followers_of_set.png">
-      <div class="label">Сетиты</div>
+      <img src="images/followers_of_set.png"><div class="label">Сетиты</div>
     </div>
-
   </div>
 
   <!-- КАМАРИЛЬЯ -->
@@ -175,55 +178,43 @@ h1 {
     <img src="images/camarilla.png" class="symbol">
 
     <div class="node" style="top:5%; left:50%;" onclick="showClan('ventrue')">
-      <img src="images/ventrue.png">
-      <div class="label">Вентру</div>
+      <img src="images/ventrue.png"><div class="label">Вентру</div>
     </div>
 
     <div class="node" style="top:28%; left:50%;" onclick="showClan('toreador')">
-      <img src="images/toreador.png">
-      <div class="label">Тореадор</div>
+      <img src="images/toreador.png"><div class="label">Тореадор</div>
     </div>
 
     <div class="node" style="top:44%; left:35%;" onclick="showClan('malkavian')">
-      <img src="images/malkavian.png">
-      <div class="label">Малкавиан</div>
+      <img src="images/malkavian.png"><div class="label">Малкавиан</div>
     </div>
 
     <div class="node" style="top:44%; left:65%;" onclick="showClan('tremere')">
-      <img src="images/tremere.png">
-      <div class="label">Тремер</div>
+      <img src="images/tremere.png"><div class="label">Тремер</div>
     </div>
 
     <div class="node" style="top:90%; left:50%;" onclick="showClan('nosferatu')">
-      <img src="images/nosferatu.png">
-      <div class="label">Носферату</div>
+      <img src="images/nosferatu.png"><div class="label">Носферату</div>
     </div>
 
     <div class="node" style="top:70%; left:50%;" onclick="showClan('gangrel')">
-      <img src="images/gangrel.png">
-      <div class="label">Гангрел</div>
+      <img src="images/gangrel.png"><div class="label">Гангрел</div>
     </div>
 
     <div class="node" style="top:52%; left:50%;" onclick="showClan('brujah')">
-      <img src="images/brujah.png">
-      <div class="label">Бруха</div>
+      <img src="images/brujah.png"><div class="label">Бруха</div>
     </div>
   </div>
 
   <!-- ШАБАШ -->
   <div class="faction side">
     <img src="images/sabbat.png" class="symbol">
-
     <div class="node" style="top:50%; left:70%;" onclick="showClan('lasombra')">
-      <img src="images/lasombra.png">
-      <div class="label">Ласомбра</div>
+      <img src="images/lasombra.png"><div class="label">Ласомбра</div>
     </div>
-
     <div class="node" style="top:50%; left:30%;" onclick="showClan('tzimisce')">
-      <img src="images/tzimisce.png">
-      <div class="label">Цимисхи</div>
+      <img src="images/tzimisce.png"><div class="label">Цимисхи</div>
     </div>
-
   </div>
 
 </div>
@@ -236,73 +227,21 @@ h1 {
 
 <script>
 const clans = {
-  ventrue:{
-    name:"Вентру",
-    desc:"Правители. Элита. Традиционалисты.",
-    link:"ventrue.html"
-  },
-  toreador:{
-    name:"Тореадор",
-    desc:"Эстеты. Декаденты. Покровители искусств.",
-    link:"toreador.html"
-  },
-  malkavian:{
-    name:"Малкавиан",
-    desc:"Безумцы. Пророки. Проказники.",
-    link:"malkavian.html"
-  },
-  tremere:{
-    name:"Тремер",
-    desc:"Маги крови.",
-    link:"tremere.html"
-  },
-  nosferatu:{
-    name:"Носферату",
-    desc:"Шпионы. Информаторы. Уродливые монстры.",
-    link:"nosferatu.html"
-  },
-  gangrel:{
-    name:"Гангрел",
-    desc:"Дикие. Независимые. Звероподобные.",
-    link:"gangrel.html"
-  },
-  brujah:{
-    name:"Бруха",
-    desc:"Необузданные. Бунтари. Бойцы.",
-    link:"brujah.html"
-  },
+  ventrue:{name:"Вентру",desc:"Правители. Элита. Традиционалисты.",link:"ventrue.html"},
+  toreador:{name:"Тореадор",desc:"Эстеты. Декаденты. Покровители искусств.",link:"toreador.html"},
+  malkavian:{name:"Малкавиан",desc:"Безумцы. Пророки. Проказники.",link:"malkavian.html"},
+  tremere:{name:"Тремер",desc:"Маги крови.",link:"tremere.html"},
+  nosferatu:{name:"Носферату",desc:"Шпионы. Информаторы. Уродливые монстры.",link:"nosferatu.html"},
+  gangrel:{name:"Гангрел",desc:"Дикие. Независимые. Звероподобные.",link:"gangrel.html"},
+  brujah:{name:"Бруха",desc:"Необузданные. Бунтари. Бойцы.",link:"brujah.html"},
 
-  assamite:{
-    name:"Ассамиты",
-    desc:"Убийцы. Фанатики. Восточные сородичи.",
-    link:"assamite.html"
-  },
-  ravnos:{
-    name:"Равнос",
-    desc:"Обманщики.",
-    link:"ravnos.html"
-  },
-  giovanni:{
-    name:"Джованни",
-    desc:"Некроманты. Единый род. Порочные богачи.",
-    link:"giovanni.html"
-  },
-  setite:{
-    name:"Сетиты",
-    desc:"Культ змеи.",
-    link:"setite.html"
-  },
+  assamite:{name:"Ассамиты",desc:"Убийцы. Фанатики. Восточные сородичи.",link:"assamite.html"},
+  ravnos:{name:"Равнос",desc:"Обманщики.",link:"ravnos.html"},
+  giovanni:{name:"Джованни",desc:"Некроманты. Единый род. Порочные богачи.",link:"giovanni.html"},
+  setite:{name:"Сетиты",desc:"Культ змеи.",link:"setite.html"},
 
-  lasombra:{
-    name:"Ласомбра",
-    desc:"Владыки теней. Аристократы ночи. Духовники Шабаша.",
-    link:"lasombra.html"
-  },
-  tzimisce:{
-    name:"Цимисхи",
-    desc:"Повелители плоти.",
-    link:"tzimisce.html"
-  }
+  lasombra:{name:"Ласомбра",desc:"Владыки теней. Аристократы ночи. Духовники Шабаша.",link:"lasombra.html"},
+  tzimisce:{name:"Цимисхи",desc:"Повелители плоти.",link:"tzimisce.html"}
 };
 
 function showClan(id) {
@@ -313,12 +252,9 @@ function showClan(id) {
 
   const btn = document.getElementById("moreBtn");
   btn.style.display = "inline-block";
-  btn.onclick = () => {
-    window.location.href = clan.link;
-  };
+  btn.onclick = () => window.location.href = clan.link;
 }
 
-/* старт с Камарильи */
 window.onload = () => {
   if (window.innerWidth <= 768) {
     const container = document.getElementById("main");
