@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Вампирские кланы</title>
 
 <style>
@@ -11,6 +12,7 @@ body {
   color: white;
   font-family: Arial;
   text-align: center;
+  overflow-x: hidden; /* убирает полосу */
 }
 
 h1 {
@@ -29,11 +31,12 @@ h1 {
 /* Фракции */
 .faction {
   position: relative;
+  flex-shrink: 0;
 }
 
 /* Размеры */
 .center {
-  width: 525px;  /* было 350 → +50% */
+  width: 525px;
   height: 525px;
 }
 
@@ -81,6 +84,58 @@ h1 {
   border-top: 1px solid #333;
   padding: 10px;
 }
+
+/* 📱 МОБИЛКА */
+@media (max-width: 768px) {
+
+  .main {
+    justify-content: flex-start;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 0 40vw; /* меньше → чтобы не обрезало верх */
+    height: auto;
+  }
+
+  .faction {
+    scroll-snap-align: center;
+  }
+
+  .center {
+    width: 85vw;
+    height: 85vw;
+  }
+
+  .side {
+    width: 70vw;
+    height: 70vw;
+  }
+
+  /* уменьшаем только на мобиле */
+  .node img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .label {
+    font-size: 10px;
+  }
+
+  .node {
+    width: 50px;
+  }
+
+  /* фикс инфо */
+  #info {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: black;
+  }
+
+  body {
+    padding-bottom: 120px;
+  }
+}
 </style>
 </head>
 
@@ -88,30 +143,26 @@ h1 {
 
 <h1>Вампирские кланы</h1>
 
-<div class="main">
+<div class="main" id="main">
 
   <!-- НЕЗАВИСИМЫЕ -->
   <div class="faction side">
 
-    <!-- Ассамиты (верх) -->
     <div class="node" style="top:15%; left:50%;" onclick="showClan('assamite')">
       <img src="images/assamite.png">
       <div class="label">Ассамиты</div>
     </div>
 
-    <!-- Равнос (низ) -->
     <div class="node" style="top:85%; left:50%;" onclick="showClan('ravnos')">
       <img src="images/ravnos.png">
       <div class="label">Равнос</div>
     </div>
 
-    <!-- Джованни (лево) -->
     <div class="node" style="top:50%; left:30%;" onclick="showClan('giovanni')">
       <img src="images/giovanni.png">
       <div class="label">Джованни</div>
     </div>
 
-    <!-- Сетиты (право) -->
     <div class="node" style="top:50%; left:70%;" onclick="showClan('setite')">
       <img src="images/followers_of_set.png">
       <div class="label">Сетиты</div>
@@ -120,7 +171,7 @@ h1 {
   </div>
 
   <!-- КАМАРИЛЬЯ -->
-  <div class="faction center">
+  <div class="faction center" id="camarillaBlock">
     <img src="images/camarilla.png" class="symbol">
 
     <div class="node" style="top:5%; left:50%;" onclick="showClan('ventrue')">
@@ -163,13 +214,11 @@ h1 {
   <div class="faction side">
     <img src="images/sabbat.png" class="symbol">
 
-    <!-- Ласомбра -->
     <div class="node" style="top:50%; left:70%;" onclick="showClan('lasombra')">
       <img src="images/lasombra.png">
       <div class="label">Ласомбра</div>
     </div>
 
-    <!-- Цимисхи -->
     <div class="node" style="top:50%; left:30%;" onclick="showClan('tzimisce')">
       <img src="images/tzimisce.png">
       <div class="label">Цимисхи</div>
@@ -268,6 +317,17 @@ function showClan(id) {
     window.location.href = clan.link;
   };
 }
+
+/* старт с Камарильи */
+window.onload = () => {
+  if (window.innerWidth <= 768) {
+    const container = document.getElementById("main");
+    const target = document.getElementById("camarillaBlock");
+
+    container.scrollLeft =
+      target.offsetLeft - container.clientWidth / 2 + target.clientWidth / 2;
+  }
+};
 </script>
 
 </body>
