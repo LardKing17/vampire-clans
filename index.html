@@ -67,11 +67,6 @@ h1 {
   width: 50px;
   height: 50px;
   filter: brightness(0) invert(1);
-  transition: 0.2s;
-}
-
-.node:hover img {
-  transform: scale(1.15);
 }
 
 .label {
@@ -80,14 +75,14 @@ h1 {
 
 /* Инфо */
 #info {
-  min-height: 110px; /* увеличили */
+  min-height: 90px;
   border-top: 1px solid #333;
-  padding: 10px;
+  padding: 8px;
 }
 
 #moreBtn {
-  margin-top: 8px;
-  padding: 8px 14px;
+  margin-top: 5px;
+  padding: 6px 12px;
 }
 
 /* 📱 МОБИЛКА */
@@ -97,7 +92,7 @@ h1 {
     justify-content: flex-start;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    padding: 0 35vw;
+    padding: 0 30vw;
     height: auto;
   }
 
@@ -105,34 +100,39 @@ h1 {
     scroll-snap-align: center;
   }
 
-  /* уменьшаем чуть сильнее чтобы всё влезло */
+  /* 🔥 ключевой фикс */
   .center {
-    width: 80vw;
-    height: 80vw;
+    width: 75vw;
+    height: 75vw;
   }
 
   .side {
-    width: 65vw;
-    height: 65vw;
+    width: 60vw;
+    height: 60vw;
   }
 
-  /* уменьшаем иконки */
+  /* аккуратные иконки */
   .node img {
-    width: 38px;
-    height: 38px;
+    width: 36px;
+    height: 36px;
   }
 
   .label {
-    font-size: 10px;
+    font-size: 9px;
   }
 
   .node {
     width: 45px;
   }
 
-  /* 🔥 ВАЖНО: сдвигаем Вентру вниз */
+  /* 🔥 важный фикс — все узлы чуть вниз */
+  .center .node {
+    transform: translate(-50%, -40%);
+  }
+
+  /* отдельно Вентру ещё ниже */
   .center .node:first-child {
-    top: 10% !important;
+    top: 12% !important;
   }
 
   /* фикс инфо */
@@ -141,11 +141,12 @@ h1 {
     bottom: 0;
     width: 100%;
     background: black;
-    min-height: 130px;
+    min-height: 100px;
+    padding: 6px;
   }
 
   body {
-    padding-bottom: 140px;
+    padding-bottom: 110px;
   }
 }
 </style>
@@ -246,7 +247,6 @@ const clans = {
 
 function showClan(id) {
   const clan = clans[id];
-
   document.getElementById("clanName").innerText = clan.name;
   document.getElementById("clanDesc").innerText = clan.desc;
 
